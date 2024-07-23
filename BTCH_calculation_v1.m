@@ -23,13 +23,13 @@ Deno_result=zeros(hs,ls);
 for num = 1:size(Std_data_ori,3)
     Std_data = Std_data_ori;
     Std_data(:,:,num)=[];
-    tem_data = cumprod(Std_data,3);
+    tem_data = cumprod(Std_data.^2,3);
     Deno_result = Deno_result+tem_data(:,:,end);
 end
 for num = 1:size(Std_data_ori,3)
     Std_data = Std_data_ori;
     Std_data(:,:,num)=[];
-    tem_data = cumprod(Std_data,3);
+    tem_data = cumprod(Std_data.^2,3);
     Weight_data(:,:,num) = tem_data(:,:,end)./Deno_result;
 end
 
